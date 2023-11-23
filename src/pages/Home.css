@@ -1,0 +1,9 @@
+.home-page {
+  margin-block: auto;
+}
+
+.buttons-mode-container {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+}

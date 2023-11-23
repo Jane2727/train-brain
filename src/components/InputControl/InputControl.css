@@ -1,0 +1,11 @@
+.input {
+  font-size: var(--font-24);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  border-style: solid;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}

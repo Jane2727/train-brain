@@ -1,0 +1,4 @@
+.react-toggle-track > * {
+  line-height: 1rem !important;
+  font-size: var(--font-14);
+}
