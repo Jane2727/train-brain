@@ -3,6 +3,8 @@
   background-color: var(--color-background);
   color: var(--color-foreground);
   border-style: solid;
+  border-color: var(--box-shadow-color);
+  border-radius: 0.5rem;
 }
 
 input::-webkit-outer-spin-button,

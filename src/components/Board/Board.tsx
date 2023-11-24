@@ -120,7 +120,14 @@ const Board = () => {
   };
 
   return (
-    <div>
+    <>
+      <div className="buttons-container">
+        <ButtonControl handleClick={restartGame} label={BUTTON_RESTART} />
+        <ButtonControl handleClick={backToMenu} label={BUTTON_BACK_TO_MENU} />
+      </div>
+
+      <h2>Try to solve 20 examples 😉</h2>
+
       {isTrickyGameMode && (
         <div className="symbols-container">
           <div className="symbols-item">{randomMathSymbols?.PLUS}</div>
@@ -132,23 +139,21 @@ const Board = () => {
         </div>
       )}
 
-      <div className="buttons-container">
-        <ButtonControl handleClick={restartGame} label={BUTTON_RESTART} />
-        <ButtonControl handleClick={backToMenu} label={BUTTON_BACK_TO_MENU} />
+      <div className="tasks-list__wrapper">
+        <ul className="tasks-list">
+          {tasks?.map((task) => (
+            <li key={task.id} className="task-item">
+              {renderTask({
+                task,
+                inputValue: inputValues?.[task.id],
+                handleInputChange,
+              })}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <ul className="tasks-list">
-        {tasks?.map((task) => (
-          <li key={task.id} className="task-item">
-            {renderTask({
-              task,
-              inputValue: inputValues?.[task.id],
-              handleInputChange,
-            })}
-          </li>
-        ))}
-      </ul>
-      <div className="buttons-container">
+      <div className="buttons-container-submit">
         <ButtonControl handleClick={finishGame} label={BUTTON_SUBMIT} />
       </div>
       <Dialog
@@ -172,7 +177,7 @@ const Board = () => {
           </>
         }
       />
-    </div>
+    </>
   );
 };
 

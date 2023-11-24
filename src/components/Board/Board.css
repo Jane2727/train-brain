@@ -1,3 +1,8 @@
+.tasks-list__wrapper {
+  display: grid;
+  place-items: center;
+}
+
 .tasks-list {
   list-style: none;
   margin-block: 0;
@@ -8,6 +13,18 @@
   font-size: var(--font-24);
   column-gap: 10rem;
   justify-content: center;
+
+  max-width: 90vw;
+  max-height: 60vh;
+  overflow-y: scroll;
+
+  border: 1px solid var(--box-shadow-color);
+  border-radius: 1rem;
+  padding: 0 5rem;
+}
+
+.tasks-list::-webkit-scrollbar {
+  display: none;
 }
 
 .task-item {
@@ -26,7 +43,7 @@
   grid-template-columns: repeat(auto-fit, 10rem);
   gap: 1em;
   justify-content: center;
-  margin-block: 3rem;
+  margin-block: 1rem;
 }
 
 .correct-answers {
@@ -44,7 +61,7 @@
   grid-template-columns: repeat(3, 4rem);
   justify-content: center;
   font-size: var(--font-24);
-  margin-block: 2rem;
+  margin-block-end: 3rem;
 }
 
 .symbols-item {
@@ -52,4 +69,12 @@
     0 2px 0 0 var(--box-shadow-color), 2px 2px 0 0 var(--box-shadow-color),
     /* Just to fix the corner */ 2px 0 0 0 var(--box-shadow-color) inset,
     0 2px 0 0 var(--box-shadow-color) inset;
+}
+
+.buttons-container-submit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 10rem);
+  gap: 1em;
+  justify-content: center;
+  margin-block: 2rem;
 }

@@ -20,5 +20,6 @@
   position: absolute;
   inset-block-start: 1rem;
   inset-inline-end: 1rem;
-  width: 6rem;
+  width: 3rem;
+  height: 3rem;
 }

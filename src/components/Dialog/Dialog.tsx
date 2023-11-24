@@ -49,7 +49,7 @@ const Dialog = ({
         handleClick={handleCloseModal}
         aria-label="Close dialog"
         className="modal-body__close-button"
-        label={"Close"}
+        label={"x"}
       />
     </dialog>
   );
