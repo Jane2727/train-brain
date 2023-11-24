@@ -14,13 +14,13 @@
   column-gap: 10rem;
   justify-content: center;
 
-  max-width: 90vw;
+  max-width: 100%;
   max-height: 60vh;
   overflow-y: scroll;
 
   border: 1px solid var(--box-shadow-color);
   border-radius: 1rem;
-  padding: 0 5rem;
+  padding: 0 2rem;
 }
 
 .tasks-list::-webkit-scrollbar {
