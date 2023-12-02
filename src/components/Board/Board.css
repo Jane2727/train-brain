@@ -27,33 +27,12 @@
   display: none;
 }
 
-.task-item {
-  display: grid;
-  grid-template-columns: 1fr 6rem;
-  padding: 1rem;
-}
-
-.task-item__label {
-  display: grid;
-  grid-template-columns: 13rem 2rem;
-}
-
 .buttons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 10rem);
   gap: 1em;
   justify-content: center;
   margin-block: 1rem;
-}
-
-.correct-answers {
-  color: var(--vivid);
-  font-weight: 700;
-}
-
-.retry-button {
-  width: 7rem;
-  margin-block-start: 3rem;
 }
 
 .symbols-container {
@@ -64,7 +43,7 @@
   margin-block-end: 3rem;
 }
 
-.symbols-item {
+.symbol-item {
   box-shadow: 2px 0 0 0 var(--box-shadow-color),
     0 2px 0 0 var(--box-shadow-color), 2px 2px 0 0 var(--box-shadow-color),
     /* Just to fix the corner */ 2px 0 0 0 var(--box-shadow-color) inset,

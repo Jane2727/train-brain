@@ -7,8 +7,12 @@ const InputControl = ({
   type = "text",
   id,
   className,
+  isCorrect,
 }: InputControlProps<string>): JSX.Element => {
-  const classNames = className ? `input ${className}` : "input";
+  const correctClassName = isCorrect ? `input correct` : "input";
+  const classNames = className
+    ? `${correctClassName} ${className}`
+    : correctClassName;
 
   return (
     <input

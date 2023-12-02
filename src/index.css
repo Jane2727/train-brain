@@ -24,6 +24,8 @@ html {
 
   --backdrop: #0000004c;
   --box-shadow-color: #888888;
+
+  --correct: #19ab27;
 }
 
 .light {

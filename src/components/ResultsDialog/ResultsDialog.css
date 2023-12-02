@@ -1,0 +1,9 @@
+.correct-answers {
+  color: var(--vivid);
+  font-weight: 700;
+}
+
+.retry-button {
+  width: 7rem;
+  margin-block-start: 3rem;
+}

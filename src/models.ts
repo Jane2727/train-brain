@@ -13,18 +13,23 @@ export interface AnswerModel {
   [key: string]: { answer: string };
 }
 
+export interface InputModel {
+  [key: string]: { answer: string; isCorrect?: boolean };
+}
+
 export interface InputControlProps<T> {
   type?: string;
   id: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: T;
   className?: string;
+  isCorrect?: boolean;
 }
 
 export interface RenderTaskProps {
   task: TaskModel;
-  inputValue: string;
-  handleInputChange: (
+  inputValue?: string;
+  handleInputChange?: (
     e: React.ChangeEvent<HTMLInputElement>,
     taskId: string
   ) => void;
@@ -52,7 +57,7 @@ export interface ButtonControlProps {
 }
 
 export interface CheckAnswersParams {
-  studentAnswers: { [key: string]: string };
+  studentAnswers: InputModel;
   listOfCorrectAnswers: AnswerModel;
 }
 
@@ -68,4 +73,8 @@ export interface MathSymbolsMatrix {
   PLUS: string;
   MINUS: string;
   MULTIPLY: string;
+}
+export interface ResultsDialogProps {
+  restartGame: () => void;
+  answers: AnswerModel;
 }

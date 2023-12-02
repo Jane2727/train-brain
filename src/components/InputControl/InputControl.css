@@ -7,6 +7,10 @@
   border-radius: 0.5rem;
 }
 
+.input.correct {
+  color: var(--correct);
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   display: none;

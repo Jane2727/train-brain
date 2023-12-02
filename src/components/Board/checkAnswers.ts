@@ -8,7 +8,7 @@ export const checkAnswers = ({
   let indexesOfCorrectAnswers = [];
 
   for (let [taskId, studentAnswer] of Object.entries(studentAnswers)) {
-    if (studentAnswer === listOfCorrectAnswers[taskId].answer) {
+    if (studentAnswer?.answer === listOfCorrectAnswers[taskId].answer) {
       indexesOfCorrectAnswers.push(taskId);
       quantityCorrectAnswers += 1;
     }

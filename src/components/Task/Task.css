@@ -1,0 +1,10 @@
+.task-item {
+  display: grid;
+  grid-template-columns: 1fr 6rem;
+  padding: 1rem;
+}
+
+.task-item__label {
+  display: grid;
+  grid-template-columns: 13rem 2rem;
+}
