@@ -1,82 +1,40 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {
   BUTTON_BACK_TO_MENU,
   BUTTON_RESTART,
-  BUTTON_SUBMIT,
-  GameMode,
+  GameType,
   HOME_PATH,
-  MathSigns,
-  TASKS_QUANTITY,
 } from "../../constants";
-import { AnswerModel, MathSymbolsMatrix, TaskModel } from "../../models";
-import { generateTasks } from "./generateTasks";
 import "./Board.css";
 import ButtonControl from "../ButtonControl/ButtonControl";
 import { useNavigate } from "react-router-dom";
 import GameModeContext from "../../contexts/GameModeContext";
-import Task from "../Task/Task";
-import { useDispatch } from "react-redux";
-import { setInputValues } from "../../store/taskSlice";
-import ResultsDialog from "../ResultsDialog/ResultsDialog";
-import { setIsOpen } from "../../store/modalSlice";
+import MathGame from "../MathGame/MathGame";
+import StroopTest from "../StroopTest/StroopTest";
 
 const Board = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const [isRestarted, setRestartGame] = useState<boolean>(false);
 
-  const [tasks, setTasks] = useState<TaskModel[]>([]);
-  const [answers, setAnswers] = useState<AnswerModel>({});
-  const [randomMathSymbols, setRandomMathSymbols] =
-    useState<MathSymbolsMatrix>();
+  const navigate = useNavigate();
 
   const { gameMode } = useContext(GameModeContext);
-  const isTrickyGameMode = gameMode === GameMode.TRICKY;
 
-  const createTasks = () => {
-    generateTasks({
-      tasksQuantity: TASKS_QUANTITY,
-      addTasks: setTasks,
-      addAnswers: setAnswers,
-      addRandomMathSymbols: setRandomMathSymbols,
-      isTrickyGameMode,
-    });
-  };
-
-  const clear = () => {
-    dispatch(setInputValues({}));
-  };
-
-  useEffect(() => {
-    createTasks();
-    return () => clear();
-  }, []);
-
-  const restartGame = () => {
-    clear();
-    createTasks();
+  const title = {
+    [GameType.MATH]: "Try to solve 20 examples 😉",
+    [GameType.STROOP]: "Try to say color of words 😉",
   };
 
   const backToMenu = () => {
     navigate(HOME_PATH);
   };
 
-  const finishGame = () => {
-    dispatch(
-      setIsOpen({
-        id: "results",
-        isOpen: true,
-      })
-    );
+  const restartGame = () => {
+    setRestartGame(true);
   };
 
-  const symbolsItems = [
-    randomMathSymbols ? randomMathSymbols.PLUS : MathSigns.PLUS,
-    randomMathSymbols ? randomMathSymbols?.MINUS : MathSigns.MINUS,
-    randomMathSymbols ? randomMathSymbols?.MULTIPLY : MathSigns.MULTIPLY,
-    MathSigns.PLUS,
-    MathSigns.MINUS,
-    MathSigns.MULTIPLY,
-  ];
+  const handleRestart = () => {
+    setRestartGame(false);
+  };
 
   return (
     <>
@@ -85,33 +43,13 @@ const Board = () => {
         <ButtonControl handleClick={backToMenu} label={BUTTON_BACK_TO_MENU} />
       </div>
 
-      <h2>Try to solve 20 examples 😉</h2>
+      <h2>{title[gameMode.type]}</h2>
 
-      {isTrickyGameMode && (
-        <div className="symbols-container">
-          {symbolsItems?.map((symbolItem) => (
-            <div className="symbol-item" key={symbolItem}>
-              {symbolItem}
-            </div>
-          ))}
-        </div>
+      {gameMode.type === GameType.MATH ? (
+        <MathGame isRestarted={isRestarted} handleRestart={handleRestart} />
+      ) : (
+        <StroopTest isRestarted={isRestarted} handleRestart={handleRestart} />
       )}
-
-      <div className="tasks-list__wrapper">
-        <ul className="tasks-list">
-          {tasks?.map((task) => (
-            <li key={task.id} className="task-item">
-              <Task task={task} />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="buttons-container-submit">
-        <ButtonControl handleClick={finishGame} label={BUTTON_SUBMIT} />
-      </div>
-
-      <ResultsDialog restartGame={restartGame} answers={answers} />
     </>
   );
 };

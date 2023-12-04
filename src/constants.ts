@@ -3,6 +3,7 @@ export const LIGHT_CLASS = "light";
 
 export const TASKS_QUANTITY = 20;
 export const MAX_NUMBER = 9;
+export const WORDS_QUANTITY = 21;
 
 export const HOME_PATH = "/train-brain";
 export const GAME_PATH = "/game";
@@ -29,3 +30,15 @@ export enum GameMode {
   EASY = "easy",
   TRICKY = "tricky",
 }
+
+export enum GameType {
+  MATH = "math",
+  STROOP = "stroop",
+}
+
+export interface GameModeProps {
+  type: GameType;
+  mode: GameMode;
+}
+
+export const COLOR_NAMES = ["black", "green", "blue", "red", "orange"];

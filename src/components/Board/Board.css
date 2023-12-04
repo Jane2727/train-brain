@@ -1,59 +1,7 @@
-.tasks-list__wrapper {
-  display: grid;
-  place-items: center;
-}
-
-.tasks-list {
-  list-style: none;
-  margin-block: 0;
-  padding-inline: 0;
-  margin-inline: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 25rem);
-  font-size: var(--font-24);
-  column-gap: 10rem;
-  justify-content: center;
-
-  max-width: 100%;
-  max-height: 60vh;
-  overflow-y: scroll;
-
-  border: 1px solid var(--box-shadow-color);
-  border-radius: 1rem;
-  padding: 0 2rem;
-}
-
-.tasks-list::-webkit-scrollbar {
-  display: none;
-}
-
 .buttons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 10rem);
   gap: 1em;
   justify-content: center;
   margin-block: 1rem;
-}
-
-.symbols-container {
-  display: grid;
-  grid-template-columns: repeat(3, 4rem);
-  justify-content: center;
-  font-size: var(--font-24);
-  margin-block-end: 3rem;
-}
-
-.symbol-item {
-  box-shadow: 2px 0 0 0 var(--box-shadow-color),
-    0 2px 0 0 var(--box-shadow-color), 2px 2px 0 0 var(--box-shadow-color),
-    /* Just to fix the corner */ 2px 0 0 0 var(--box-shadow-color) inset,
-    0 2px 0 0 var(--box-shadow-color) inset;
-}
-
-.buttons-container-submit {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 10rem);
-  gap: 1em;
-  justify-content: center;
-  margin-block: 2rem;
 }

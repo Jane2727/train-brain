@@ -1,9 +1,9 @@
 import React from "react";
-import { GameMode } from "../constants";
+import { GameMode, GameModeProps, GameType } from "../constants";
 
 const GameModeContext = React.createContext({
-  gameMode: GameMode.EASY,
-  setGameMode: (_: GameMode) => {},
+  gameMode: { type: GameType.MATH, mode: GameMode.EASY },
+  setGameMode: (_: GameModeProps) => {},
 });
 
 export default GameModeContext;

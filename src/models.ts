@@ -43,6 +43,11 @@ export interface GenerateTasksParams {
   isTrickyGameMode: boolean;
 }
 
+export interface GenerateWordsParams {
+  wordsQuantity: number;
+  addWords: (words: WordModel[]) => void;
+}
+
 export interface ColorSchemeToggleProps {
   isDark: boolean;
   setDarkTheme: (value: boolean) => void;
@@ -77,4 +82,10 @@ export interface MathSymbolsMatrix {
 export interface ResultsDialogProps {
   restartGame: () => void;
   answers: AnswerModel;
+}
+
+export interface WordModel {
+  id: string;
+  name: string;
+  color: string;
 }

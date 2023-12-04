@@ -5,7 +5,7 @@ import Dialog from "../Dialog/Dialog";
 import { setIsOpen } from "../../store/modalSlice";
 import { modalIsOpenSelector, taskInputValues } from "../../store/selectors";
 import { useEffect, useState } from "react";
-import { checkAnswers } from "../Board/checkAnswers";
+import { checkAnswers } from "../MathGame/checkAnswers";
 import { ResultsDialogProps } from "../../models";
 import "./ResultsDialog.css";
 import { setInputValues } from "../../store/taskSlice";

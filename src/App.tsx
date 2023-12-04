@@ -4,6 +4,8 @@ import {
   DARK_CLASS,
   GAME_PATH,
   GameMode,
+  GameModeProps,
+  GameType,
   HOME_PATH,
   LIGHT_CLASS,
 } from "./constants";
@@ -16,7 +18,10 @@ import GameModeContext from "./contexts/GameModeContext";
 import { useState } from "react";
 
 function App() {
-  const [gameMode, setGameMode] = useState(GameMode.EASY);
+  const [gameMode, setGameMode] = useState<GameModeProps>({
+    type: GameType.MATH,
+    mode: GameMode.EASY,
+  });
   const { isDark, setDarkTheme } = useColorScheme();
 
   // avoid flashing on start
